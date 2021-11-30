@@ -4,15 +4,15 @@ import java.io.FileWriter;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
-
- class CSVFile {
+class CSVFile {
 
      public static void main(String[] args) throws Exception {
 
          Scanner file = new Scanner(new File("C:\\Users\\Admin2\\Downloads\\Treadmill-social-media.csv"));
          Set<String> wordSet = new HashSet<String>();
-         FileWriter data = new FileWriter("D:\\Data.txt"+System.currentTimeMillis());
+         FileWriter data = new FileWriter("D:\\Data.csv"+System.currentTimeMillis());
          file.useDelimiter(",");
+
          String word;
 
          while (file.hasNext())
@@ -25,7 +25,12 @@ import java.util.Set;
          file.close();
 
          for (String wordlist : wordSet) {
-             data.write(wordlist);
+             StringBuilder line =new StringBuilder();
+             line.append(wordlist);
+             line.append(',');
+             data.write(String.valueOf(line));
          }
+         data.close();
      }
+
  }
