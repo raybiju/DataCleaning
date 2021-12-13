@@ -18,7 +18,7 @@ public class Translator {
           String row;
         while ((row = csvReader.readLine()) != null) {
          String record = row.replaceAll("[^a-zA-Z0-9 ,]", "");
-        String result = translate("auto", "en", "good boy");
+        String result = translate("auto", "en",record);
          String[] words = result.split(",");
         csvWriter.writeNext(words);
 
